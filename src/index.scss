@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.border{
+border-bottom: 1px solid #Ccc;
+}
+header{
+    h1{
+        text-align: center;
+    }
+    margin-bottom: 1em;
+}
+main{
+    padding: 0 10px;
+    .content{
+        overflow: hidden;
+        border: 1px solid #ccc;
+        padding:0em 1em;
+     .item{
+         padding: 1em 0;
+        .title{}
+        .article{
+        border: 1px solid #ccc;
+        border-top: none;
+        padding: 1em;
+        }
+     }
+    }
+    .nav{
+        float: right;
+        margin-left: 10px;
+        width: 20vw;
+        border: 1px solid #ccc;
+    }
+}
