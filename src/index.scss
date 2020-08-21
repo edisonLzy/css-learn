@@ -28,6 +28,8 @@ main{
      }
     }
     .nav{
+        position: sticky;
+        top: 0;
         float: right;
         margin-left: 10px;
         width: 20vw;
@@ -35,4 +37,11 @@ main{
         display: flex;
         flex-direction: column;
     }
+}
+
+/* 清除 浮动 解决高度塌陷*/
+.clearfix::after{
+    content: "";
+    display: block;
+    clear: both;
 }

@@ -3,7 +3,7 @@ export function createItem({title,article}){
     
     const h2 = document.createElement('h2');
     h2.setAttribute('class','title border');
-    h2.setAttribute('id','title');
+    h2.setAttribute('id',title);
     h2.innerHTML =  title;
     const art = document.createElement('article');
     art.setAttribute('class','article');
