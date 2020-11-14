@@ -47,3 +47,4 @@ text-shadow
 # get
 
 1. 并列选择器
+2. document.querySelector 选中第一个满足条件的元素
