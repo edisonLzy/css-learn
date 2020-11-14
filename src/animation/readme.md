@@ -26,5 +26,47 @@
 
 # get 
 
-1. 过渡事件 
-2. 利用贝塞尔曲线 是否可以实现缓冲动画
+1. 利用贝塞尔曲线 是否可以实现缓冲动画
+> 贝塞尔曲线接 可以反应 `物体的运动状态` 所以可以实现
+2. hover 一个元素作用于兄弟元素 `只要是有效的选择器即可`
+
+```scss
+
+$transition:all .5s;
+.root{
+    .title{
+        cursor: pointer;
+        color:lightgrey;
+        transition: $transition;
+        &:hover + .square{
+            // 作用于兄弟元素 
+            width:100px;
+        }
+        .sub-title{
+            color: aqua;
+        }
+        &:hover .sub-title{
+            // 作用于 子元素
+            color: gold;
+        }
+    }
+
+    .square{
+        cursor:move;
+        width:50px;
+        height: 50px;
+        color: lightpink;
+        transition: $transition;
+        background:{
+            color: currentColor;
+        }
+    }
+
+}
+
+
+
+
+
+
+```

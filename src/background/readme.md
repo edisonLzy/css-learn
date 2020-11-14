@@ -41,7 +41,7 @@ background-clip:text;
 text-fill-color:transparent;
 ```
 ## background-attachment
->  scroll(默认相对于容器定位) | local(相对于内容定位) | fixed(相对于`视口`定位)
+>  scroll(默认相对于容器定位) | local(相对于内容定位) | fixed(相对于`视口`定位) 结合 `position 属性进行定位`
 
 
 ## linear-gradient 
@@ -57,3 +57,5 @@ text-fill-color:transparent;
 1. 主要内容 必须 使用img 标签进行呈现
 2. overflow:scroll 设置超出部分出现滚动条
 3. currentColor(中转颜色) 计算当前样式作用域中 color属性的值 
+4. url-loader 处理css 背景图片路径的问题
+> https://stackoverflow.com/questions/48475500/webpack-scss-how-to-work-with-image-paths

@@ -1,0 +1,43 @@
+$transition:all .5s;
+$buffer:transform 1s cubic-bezier(0.05, -0.83, 0.06, 1.72);
+
+.root {
+    .title {
+        cursor: pointer;
+        color: lightgrey;
+        transition: $transition;
+        &:hover ~ .square {
+            transform: translateX(200px);
+        }
+
+        .sub-title {
+            color: aqua;
+        }
+
+        &:hover .sub-title {
+            color: gold;
+        }
+    }
+
+    .square {
+        cursor: move;
+        width: 50px;
+        height: 50px;
+        color: #fff;
+        transition: $buffer;
+        background: {
+            color: lightpink;
+        }
+    }
+
+     .square + .square {
+        transition: {
+            property: transform;
+            duration: 1s;
+            timing-function: cubic-bezier(0.05, -0.83, 0.06, 1.72);
+            delay: .75s;
+        }
+    }
+
+
+}
