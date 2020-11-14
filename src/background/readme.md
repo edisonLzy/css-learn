@@ -56,4 +56,4 @@ text-fill-color:transparent;
 
 1. 主要内容 必须 使用img 标签进行呈现
 2. overflow:scroll 设置超出部分出现滚动条
-3. currentColor(中转颜色) 计算当前样式作用域中 color属性的值
+3. currentColor(中转颜色) 计算当前样式作用域中 color属性的值 
