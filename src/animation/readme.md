@@ -24,12 +24,51 @@
 
 ## animation
 
+```scss
+.div{
+  animation:{
+    name:'指定关键帧容器名称','指定关键帧容器名称', // 指定多个动画
+    duration:'动画时长'，
+    timing-function:'定义每一个段动画的运动状态',
+    iteration-count:'动画执行次数 infinite | number',
+    direction:'运动方向 reverse | normal | alternate(正执行一次 反执行一次) | alternate-reverse(反执行一次 正执行一次 ) ' ,
+    play-state:'兼容性存在问题 可用户控制动画 是否运行 running|pause',
+    fill-mode:'设置运动的最终状态 forwards(运动结束之后 保存最后一帧的状态 ) | backwards( 运动开始之前 保存第一帧的状态 ) | both'
+  }
+}
+
+```
+**@keyframes**
+
+> `定义关键帧容器，用于记录运动不同时间点的状态`
+
+```css
+@keyframes name {
+    0%{
+        /* from  */
+    } 
+    50%{
+        /* ... */
+    }
+    100%{
+        /* to */
+    }
+}
+```
+
+**局限性**
+
+1. animation不能实现 每一段运动状态不一样的动画
+2. 实现曲线运动比较困难
+
 # get 
 
-1. 利用贝塞尔曲线 是否可以实现缓冲动画
+1. 过渡事件 
+2. 利用贝塞尔曲线 是否可以实现缓冲动画
 > 贝塞尔曲线接 可以反应 `物体的运动状态` 所以可以实现
-2. hover 一个元素作用于兄弟元素 `只要是有效的选择器即可`
-
+3. chrome控制面板 中的animation
+4. 实现钟摆运动
+5. hover 一个元素作用于兄弟元素 `只要是有效的选择器即可`
 ```scss
 
 $transition:all .5s;
@@ -63,10 +102,5 @@ $transition:all .5s;
     }
 
 }
-
-
-
-
-
-
 ```
+6. background-image 不支持动画
