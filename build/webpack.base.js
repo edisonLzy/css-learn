@@ -1,20 +1,20 @@
-const path = require("path");
-const root = path.resolve(__dirname, "../");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const CopyPlugin = require("copy-webpack-plugin");
-const devMode = process.env.NODE_ENV !== "production";
+const path = require('path');
+const root = path.resolve(__dirname, '../');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
+const devMode = process.env.NODE_ENV !== 'production';
 
 module.exports = {
 	context: root,
 	entry: {
-		main: "./index.ts"
+		main: './index.ts'
 	},
-	stats:"none",
+	stats:'none',
 	resolve: {
-		extensions: [".tsx", ".ts", ".js",".html"],
+		extensions: ['.tsx', '.ts', '.js','.html'],
 		alias: {
-			"@": path.resolve(__dirname, "../src")
+			'@': path.resolve(__dirname, '../src')
 		}
 	},
 	externals: {},
@@ -22,19 +22,19 @@ module.exports = {
 		rules: [
 			{
 				test: /\.tsx?$/,
-				use: ["babel-loader","ts-loader",],
+				use: ['babel-loader','ts-loader',],
 				exclude: /node_modules/
 			},
 			// 处理图片
 			{
 				test: /\.(png)|(gif)|(jpg)$/,
 				use: [{
-					loader: "url-loader",
+					loader: 'url-loader',
 					options: {
 						// limit: false //不限制任何大小，所有经过loader的文件进行base64编码返回
 						limit: 10 * 1024, //只要文件不超过 100*1024 字节，则使用base64编码，否则，交给file-loader进行处理
-						name: "images/[name].[hash:5].[ext]",
-						publicPath: "../",
+						name: 'images/[name].[hash:5].[ext]',
+						publicPath: '../',
 						useRelativePaths: true
 					}
 				}]
@@ -44,13 +44,13 @@ module.exports = {
 				use: [
 					MiniCssExtractPlugin.loader,
 					{
-						loader: "css-loader"
+						loader: 'css-loader'
 					},
 					{
-						loader: "postcss-loader"
+						loader: 'postcss-loader'
 					},
 					{
-						loader: "sass-loader"
+						loader: 'sass-loader'
 					}
 				]
 
@@ -59,7 +59,7 @@ module.exports = {
 
 				test:/\.html$/,
 				
-				loader:"html-loader"
+				loader:'html-loader'
 				
 			}
 		]
@@ -68,16 +68,16 @@ module.exports = {
 		new MiniCssExtractPlugin({
 			// Options similar to the same options in webpackOptions.output
 			// both options are optional
-			filename: devMode ? "css/[name].css" : "css/[name].[hash].css",
-			chunkFilename: devMode ? "[id].css" : "[id].[hash].css",
+			filename: devMode ? 'css/[name].css' : 'css/[name].[hash].css',
+			chunkFilename: devMode ? '[id].css' : '[id].[hash].css',
 		}),
 		new HtmlWebpackPlugin({
-			template: path.resolve(__dirname, "../public/index.html"),
-			title: require("../package.json").name
+			template: path.resolve(__dirname, '../public/index.html'),
+			title: require('../package.json').name
 		}),
 		new CopyPlugin({
 			patterns: [
-				{ from: "./public" }
+				{ from: './public' }
 			]
 		})
 	]

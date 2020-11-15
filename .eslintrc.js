@@ -1,40 +1,40 @@
 module.exports = {
-	"env": {
-		"browser": true,
-		"es6": true,
-		"node":true,
+	'env': {
+		'browser': true,
+		'es2021': true,
+		'node':true
 	},
-	"extends": [
-		"eslint:recommended",
-		"plugin:@typescript-eslint/eslint-recommended"
+	'extends': [
+		'eslint:recommended',
+		'plugin:@typescript-eslint/recommended'
 	],
-	"globals": {
-		"Atomics": "readonly",
-		"SharedArrayBuffer": "readonly"
+	'parser': '@typescript-eslint/parser',
+	'parserOptions': {
+		'ecmaVersion': 12,
+		'sourceType': 'module'
 	},
-	"parser": "@typescript-eslint/parser",
-	"parserOptions": {
-		"ecmaVersion": 2018
-	},
-	"plugins": [
-		"@typescript-eslint"
+	'plugins': [
+		'@typescript-eslint'
 	],
-	"rules": {
-		"indent": [
-			"error",
-			"tab"
+	'rules': {
+		'indent': [
+			'error',
+			'tab'
 		],
-		"linebreak-style": [
-			"error",
-			"unix"
+		'linebreak-style': [
+			'error',
+			'unix'
 		],
-		"quotes": [
-			"error",
-			"double"
+		'quotes': [
+			'error',
+			'single'
 		],
-		"semi": [
-			"error",
-			"always"
-		]
+		'semi': [
+			'error',
+			'always'
+		],
+		'@typescript-eslint/no-var-requires':'off',
+		'accessor-pairs':'error',
+		'eqeqeq':'error'
 	}
 };
