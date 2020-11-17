@@ -133,6 +133,92 @@ $buffer:transform 1s cubic-bezier(0.05, -0.83, 0.06, 1.72);
         border-radius: 50%;
      }
     }
+
+    .animate{
+        width:100px;
+        height:100px;
+        background:{
+            color:chartreuse;
+        }
+    }
+
+    .toggle{
+      width:300px;
+      height: 800px;
+      overflow: hidden;
+      position: relative;
+      .view{
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;  
+        will-change: transform;
+        transition: -webkit-transform 0.3s cubic-bezier(0.465, 0.183, 0.153, 0.946);
+        transition: transform 0.3s cubic-bezier(0.465, 0.183, 0.153, 0.946);
+      }
+
+    .model{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        opacity: 0;
+        will-change: transform, opacity;  
+
+        -webkit-transform: scale(1.15);
+        transform: scale(1.15);
+      
+        -webkit-transition:
+          -webkit-transform 0.1s cubic-bezier(0.465, 0.183, 0.153, 0.946),
+          opacity 0.1s cubic-bezier(0.465, 0.183, 0.153, 0.946);
+      
+        transition:
+          transform 0.1s cubic-bezier(0.465, 0.183, 0.153, 0.946),
+          opacity 0.1s cubic-bezier(0.465, 0.183, 0.153, 0.946);
+    }
+
+    .modal.visible {
+        pointer-events: auto;
+        opacity: 1;
+
+        -webkit-transform: scale(1);
+        transform: scale(1);
+      
+        -webkit-transition:
+          -webkit-transform 0.3s cubic-bezier(0.465, 0.183, 0.153, 0.946),
+          opacity 0.3s cubic-bezier(0.465, 0.183, 0.153, 0.946);
+      
+        transition:
+          transform 0.3s cubic-bezier(0.465, 0.183, 0.153, 0.946),
+          opacity 0.3s cubic-bezier(0.465, 0.183, 0.153, 0.946);
+
+
+    }
+
+      .list{
+          background:cadetblue;
+          transform:translateX(0%)
+          
+      }
+      .detail{
+          background:chocolate;
+          transform:translateX(100%)
+      }
+    }
+
+    .view-change{
+        .list{
+            transform:translateX(-100%);
+        }
+        .detail{
+            transform:translateX(0%)
+        }
+      }
+
+
 }
 
 
