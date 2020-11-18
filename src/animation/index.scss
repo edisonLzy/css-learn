@@ -39,4 +39,33 @@ $buffer:transform 1s cubic-bezier(0.05, -0.83, 0.06, 1.72);
     }
 
 
+    .list{
+        &-item{
+            list-style: none;
+            border: 1px solid #0ff;
+            margin-bottom: 5px;
+            padding: 5px 10px;
+            border-radius: 10px;
+        }
+    }
+}
+
+@keyframes list{
+    0%{
+        transform: scale(1.1);  
+    }
+    100%{
+        transform: scaleY(1); 
+    }
+}
+
+@for $i from 1 through 5 {
+    .animation-list-#{$i}{
+        animation:{
+            name:list;
+            duration:.5s;
+            delay:$i* 0.1ss;
+            timing-function:ease-in-out;
+        }
+    }
 }

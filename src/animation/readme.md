@@ -56,11 +56,34 @@
 }
 ```
 
+
+
+**timing-function:steps**
+
+> `逐帧动画`： 以跳转的形式来实现动画 而非 transition 过渡的效果
+
+1. start:保留下一帧的状态，直到这段时间结束
+2. end:保留当前帧的状态，直到这段时间结束
+```css
+/* 第一个参数 控制 每一个状态之间 变化的次数 */
+animation:name 4s steps(10,[start|end])
+/* 特殊值 */
+steps(1,end) === step-end;
+steps(1,start) === step-start;
+```
+
 **局限性**
 
 1. animation不能实现 每一段运动状态不一样的动画
 2. 实现曲线运动比较困难
 
+
+
+**demo**
+1. 打字效果实现
+> 使用 monospace 保证每一个字母占用的空间都是一致的
+2. 钟表效果
+3. 跑马效果
 # get 
 
 1. 过渡事件 
@@ -104,3 +127,5 @@ $transition:all .5s;
 }
 ```
 6. background-image 不支持动画
+7. transform-origin 相对于自身定位
+8. attr 属性可以做什么
