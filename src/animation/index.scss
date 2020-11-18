@@ -1,11 +1,14 @@
+@import '../common/mixin';
 $transition:all .5s;
 $buffer:transform 1s cubic-bezier(0.05, -0.83, 0.06, 1.72);
+
 .root {
     .title {
         cursor: pointer;
         color: lightgrey;
         transition: $transition;
-        &:hover ~ .square {
+
+        &:hover~.square {
             transform: translateX(200px);
         }
 
@@ -24,12 +27,13 @@ $buffer:transform 1s cubic-bezier(0.05, -0.83, 0.06, 1.72);
         height: 50px;
         color: #fff;
         transition: $buffer;
+
         background: {
             color: lightpink;
         }
     }
 
-     .square + .square {
+    .square+.square {
         transition: {
             property: transform;
             duration: 1s;
@@ -38,6 +42,172 @@ $buffer:transform 1s cubic-bezier(0.05, -0.83, 0.06, 1.72);
         }
     }
 
+    .day {
+        position: relative;
+        height: 300px;
+        overflow: hidden;
+        background:#000;
+        // background: {
+        //     image: linear-gradient(to bottom, rgba(0, 130, 255, 1), rgba(255, 255, 255, 1))
+        // }
+        // ;
+        // animation:{
+        //     name:day;
+        //     duration:10s;
+        //     iteration-count:1
+        // }
+
+        .sun {
+            @include position-absolute-center;
+            left: 80%;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #fff;
+            box-shadow: 0 0 40px 25px #fff,
+                0 0 100px 80px #ff0;
+
+            animation: {
+                name: sun;
+                duration: 2s;
+                iteration-count:2;
+                direction:alternate;
+                fill-mode: forwards;
+            };
+        }
+
+        .moon{
+            position: absolute;
+            right: 20px;
+            bottom: 0;
+            opacity: 0;
+            background:{
+                color:#fff
+            };
+            width: 80px;
+            height: 80px;  
+            border-radius: 50%;
+            animation:{
+                name:moon;
+                duration:2s;
+                delay:4s;
+                fill-mode: forwards;
+                timing-function: cubic-bezier(0.05, -0.83, 0.06, 1.72);
+            };
+            &::after{
+                content: '';
+                display:block;
+                position:absolute;
+                top:5px;
+                width: 65px;
+                height: 65px;  
+                border-radius: 50%;
+                background:{
+                    color:#000
+                };
+            } 
+        }
+    }
+
+
+    .clock{
+     position: relative;
+     height:200px;
+     animation:{
+         name:clock;
+         duration:1s;
+         iteration-count:infinite;
+         direction:alternate;
+     }
+     .ball{
+        position:absolute;
+        left:50%;
+        top:50%;
+        margin-left: -25px;
+        margin-top: -25px;
+        width: 50px;
+        height: 50px; 
+        background:{
+            color:pink;
+        } 
+        border-radius: 50%;
+     }
+    }
+
+    .animate{
+        width:100px;
+        height:100px;
+        background:{
+            color:chartreuse;
+        }
+    }
+
+    .toggle{
+      width:300px;
+      height: 800px;
+      overflow: hidden;
+      position: relative;
+      .view{
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;  
+        will-change: transform;
+        transition: -webkit-transform 0.3s cubic-bezier(0.465, 0.183, 0.153, 0.946);
+        transition: transform 0.3s cubic-bezier(0.465, 0.183, 0.153, 0.946);
+      }
+
+    .model{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        opacity: 0;
+        will-change: transform, opacity;  
+
+        -webkit-transform: scale(1.15);
+        transform: scale(1.15);
+      
+        -webkit-transition:
+          -webkit-transform 0.1s cubic-bezier(0.465, 0.183, 0.153, 0.946),
+          opacity 0.1s cubic-bezier(0.465, 0.183, 0.153, 0.946);
+      
+        transition:
+          transform 0.1s cubic-bezier(0.465, 0.183, 0.153, 0.946),
+          opacity 0.1s cubic-bezier(0.465, 0.183, 0.153, 0.946);
+    }
+
+    .modal.visible {
+        pointer-events: auto;
+        opacity: 1;
+
+        -webkit-transform: scale(1);
+        transform: scale(1);
+      
+        -webkit-transition:
+          -webkit-transform 0.3s cubic-bezier(0.465, 0.183, 0.153, 0.946),
+          opacity 0.3s cubic-bezier(0.465, 0.183, 0.153, 0.946);
+      
+        transition:
+          transform 0.3s cubic-bezier(0.465, 0.183, 0.153, 0.946),
+          opacity 0.3s cubic-bezier(0.465, 0.183, 0.153, 0.946);
+
+
+    }
+
+      .list{
+          background:cadetblue;
+          transform:translateX(0%)
+          
+      }
+      .detail{
+          background:chocolate;
+          transform:translateX(100%)
+      }
+    }
 
     .list{
         &-item{
@@ -67,5 +237,84 @@ $buffer:transform 1s cubic-bezier(0.05, -0.83, 0.06, 1.72);
             delay:$i* 0.1ss;
             timing-function:ease-in-out;
         }
+    .view-change{
+        .list{
+            transform:translateX(-100%);
+        }
+        .detail{
+            transform:translateX(0%)
+        }
+      }
+    }
+
+}
+
+
+// 🌞 🌛
+@keyframes moon{
+   from{
+      opacity: 0;
+      transform: translate(0%,0%);
+   }
+   to{
+    opacity: 1;
+    transform: translate(-10%,-270%);
+   }
+}
+@keyframes sun {
+    0% {
+        left: 80%;
+        opacity: 0;
+    }
+
+    50% {
+        left: 90%;
+        opacity: .5;
+    }
+
+    100% {
+        top: 10%;
+        left: 100%;
+        opacity: 1;
+    }
+}
+@keyframes day {
+    0% {
+        opacity: 0;
+    }
+
+    20% {
+        opacity: .5;
+    }
+
+    40% {
+        opacity: 1;
+    }
+
+    60% {
+        opacity: .5;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+// ⌚️
+
+@keyframes clock{
+    0%{
+        transform:translate(0,0)
+    }
+    25%{
+        transform:translate(15px,15px)
+    }
+    50%{
+        transform:translate(30px,30px)
+    }
+    75%{
+        transform:translate(45px,15px) 
+    }
+    100%{
+        transform:translate(60px,0px)
     }
 }
