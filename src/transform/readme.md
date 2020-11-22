@@ -15,7 +15,17 @@
 
 > rotate3D(x,y,z,angle) x,y,z(`3个向量`) 确定在三维坐标轴上面的旋转轴
 
+## scale
 
+1. 伸缩的此元素 `坐标轴的刻度 `
+2. scale 叠加
+3. rotate的坐标轴 是否会跟着 scale的轴旋转
+4. `scale会保留影响` : 雁过留声
+
+```css
+/* 先scale 后scale的区别 */
+```
+## skew
 ## 3d视图
 
 > perspective:像素值
