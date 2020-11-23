@@ -17,15 +17,29 @@
 
 ## scale
 
-1. 伸缩的此元素 `坐标轴的刻度 `
+1. 伸缩的此元素 `坐标轴的刻度`,而不是改变 元素的大小
 2. scale 叠加
+
+```css
+transform:scale(.5,.5) scale(3,3); 
+/* 等同于 */
+transform:scale(1.5,1.5); 
+```
 3. rotate的坐标轴 是否会跟着 scale的轴旋转
 4. `scale会保留影响` : 雁过留声
 
-```css
-/* 先scale 后scale的区别 */
-```
+- [] 先scale 后scale的区别
+
 ## skew
+
+1. 用法
+> transform:skew(y轴倾斜角度,x轴倾斜角度)
+
+```css
+transform:skew(ydeg,xdeg)
+```
+
+2. 坐标轴被倾斜 以及 拉伸
 ## 3d视图
 
 > perspective:像素值
