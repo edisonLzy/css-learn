@@ -1,0 +1,29 @@
+.wrap{
+    display:flex;
+    flex-wrap: wrap;
+    border: 1px solid #ebedf0;
+    &-item{
+      box-sizing: border-box;
+      flex: 1 1 33.33%;
+      padding-right: 20px;
+      &__content{
+        position: relative;
+          background: rgb(168, 22, 22);
+          &::after{
+            z-index: 1;    
+            position: absolute;
+            box-sizing: border-box;
+            content: ' ';
+            pointer-events: none;
+            top: -50%;
+            right: -50%;
+            bottom: -50%;
+            left: -50%;
+            border: 0 solid #ebedf0;
+            border-width: 0 1px 1px 0;
+            -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+          }
+      }
+    }
+}

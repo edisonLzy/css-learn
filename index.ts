@@ -5,5 +5,5 @@ import './src/BFC';
 import './src/selector';
 import './src/animation';
 import './src/background';
-
+import './src/flex';
 

@@ -22,7 +22,7 @@ a {
 }
 
 .nav-item+.nav-item {
-    background: #ccc
+    background: rgb(194, 82, 82)
 }
 
 
@@ -35,25 +35,28 @@ a {
         display: block;
         background: lightpink;
         cursor: pointer;
-        
-        &:last-of-type{
-           background:green;
+
+        &:last-of-type {
+            background: green;
         }
 
-        &:nth-of-type(2){
-            background:rgb(208, 211, 62);
+        &:nth-of-type(2) {
+            background: rgb(208, 211, 62);
         }
-        &:first-of-type{
-            background:rgb(125, 172, 125);
+
+        &:first-of-type {
+            background: rgb(125, 172, 125);
         }
 
         &-content {
             max-height: 0;
             overflow: hidden;
-            transition:.3s;
-            &:target{
-              max-height: 300px;
+            transition: .3s;
+
+            &:target {
+                max-height: 300px;
             }
+
             h2 {
                 background: #ddd;
             }
@@ -61,21 +64,60 @@ a {
     }
 }
 
-.tab{
-   &-nav{
-         &-item{
-             cursor: pointer;
-             &:hover{
-                 color: red;
-             }
-         }
-   }
-   &-content{
-       width: 300px;
-       height: 300px;
-       background:#ddd;
-       &-item:not(:target){
-           display:none;
-       }
-   }
+.tab {
+    &-nav {
+        &-item {
+            cursor: pointer;
+
+            &:hover {
+                color: red;
+            }
+        }
+    }
+
+    &-content {
+        width: 300px;
+        height: 300px;
+        background: #ddd;
+
+        &-item:not(:target) {
+            display: none;
+        }
+    }
+}
+
+.theme {
+    font-size: 20px;
+
+    #mode-check {
+        display: none;
+    }
+
+    .header {
+        display: flex;
+        .mode-icon {
+            &:after {
+                content: '🌞';
+                cursor: pointer;
+            }
+        }
+    }
+
+
+    #mode-check:checked + .header .mode-icon {
+        &:after {
+            content: '🌛';
+            cursor: pointer;
+        }
+    }
+
+    
+    // night
+    #mode-check:checked ~ .main{
+        background: #000;
+        color: #fff;
+    }
+    .main {
+        transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
 }

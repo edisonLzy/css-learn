@@ -10,9 +10,6 @@
         "sourceMap": true, // 自动生成sourceMap
         "types": [
             "webpack-env"
-        ],
-        "lib": [
-            "esnext",
-          ]
+        ]
     },
 }
