@@ -8,3 +8,5 @@ import './src/background';
 import './src/flex';
 import './src/pseudo';
 import './src/layout';
+import './src/Text';
+import './src/shrink-content';
