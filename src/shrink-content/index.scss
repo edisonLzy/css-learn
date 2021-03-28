@@ -2,6 +2,13 @@
   position: relative;
   display: inline-block;
 
+
+  .husky {
+    &::after {
+      content: "xxx"
+    }
+  }
+
   .prev,
   .next {
     position: absolute;
