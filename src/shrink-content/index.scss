@@ -4,8 +4,9 @@
 
 
   .husky {
-    &::after {
-      content: "xxx"
+    &::before {
+      content: "xxx";
+      color: red
     }
   }
 

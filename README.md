@@ -669,3 +669,5 @@ span {
 2. 为何 设置 宽高会影响图片的大小展示? 
 
 **图片默认填充整个content 区域: object-fit:fill 。设置的宽高实际作用于content-box 但由于默认填充满所有 图片自然放大**
+
+3. fireFox下存在有效alt属性且没有src属性的img标签的 (after)伪元素有效果
