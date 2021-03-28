@@ -6,5 +6,7 @@ import './src/selector';
 import './src/animation';
 import './src/background';
 import './src/flex';
+import './src/pseudo';
+import './src/layout';
 import './src/Text';
-import './src/shrink-content'
+import './src/shrink-content';

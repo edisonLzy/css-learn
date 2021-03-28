@@ -1,0 +1,9 @@
+.counter{
+    --color:red;
+    counter-reset: h3;
+    h3:before{
+        counter-increment: h3;      /* 增加计数器值 */
+        content: "h3 " counter(h3) ": "; /* 显示计数器 */
+        color:var(--color)
+    }
+}
